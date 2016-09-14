@@ -19,6 +19,10 @@
   <strong>Sports:</strong>
   <%= @locality.sports %>
 </p>
+<% if user_signed_in? %>
 
+<%= if @locality.user_id == current_user_id %>
 <%= link_to 'Edit', edit_locality_path(@locality) %> |
 <%= link_to 'Back', localities_path %>
+<% end %>
+<%end %>

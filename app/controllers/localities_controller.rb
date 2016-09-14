@@ -14,7 +14,7 @@ class LocalitiesController < ApplicationController
 
   # GET /localities/new
   def new
-    @locality = Locality.new
+    @locality = current_user.localities.build
   end
 
   # GET /localities/1/edit
@@ -24,7 +24,7 @@ class LocalitiesController < ApplicationController
   # POST /localities
   # POST /localities.json
   def create
-    @locality = Locality.new(locality_params)
+    @locality = current_user.localities.build(locality_params)
 
     respond_to do |format|
       if @locality.save
